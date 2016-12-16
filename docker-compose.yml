@@ -1,0 +1,21 @@
+version: '2'
+services:
+  confluence:
+    image: registry.cn-hangzhou.aliyuncs.com/c3t3m3/docker-confluence:aliyun
+    ports:
+      - "8082:8080"
+    volumes:
+      - "./data/confluence/:/var/confluence_home:rw"
+    links:
+      - confluence-mysql
+    mac_address: 8F:A0:C0:25:5F:AB
+    networks:
+      - confluence-net
+  confluence-mysql:
+    image: registry.cn-hangzhou.aliyuncs.com/c3t3m3/docker-mysql:aliyun
+    networks:
+      - confluence-net
+    mac_address: 80:BA:E7:C6:23:66
+networks:
+  confluence-net:
+    driver: bridge
