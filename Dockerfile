@@ -1,4 +1,4 @@
-FROM java:openjdk-8-jdk-alpine
+FROM java:openjdk-8-jdk
 ENV CONF_HOME /var/confluence
 RUN apt-get update -q && apt-get install -y wget curl mysql-client
 RUn curl https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-6.0.2.tar.gz | \
