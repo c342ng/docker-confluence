@@ -12,7 +12,7 @@ RUN mkdir -p "${CONF_HOME}" && mkdir -p "${CONF_DATA}"\
   tar -xz --directory "${CONF_HOME}" --strip-components=1
   
 RUN mkdir -p ${CONF_DATA}/temp && mkdir ${CONF_DATA}/logs && mkdir ${CONF_DATA}/work \
-  && chown -R confluence:confluence "${CONF_DATA}"
+  && chown -R confluence:confluence "${CONF_DATA}" \
   && echo -e "\nconfluence.home=${CONF_DATA}" >> "${CONF_HOME}/confluence/WEB-INF/classes/confluence-init.properties"
   
 WORKDIR ${CONF_HOME}
