@@ -9,10 +9,10 @@ RUN apt-get update -q && apt-get install -y wget curl mysql-client \
   
 RUN mkdir -p "${CONF_HOME}" && mkdir -p "${CONF_DATA}"\
   && curl -Ls https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-6.0.2.tar.gz | \
-  tar -xz --directory "${CONF_HOME}" --strip-components=1 \
-  && chmod -R 777 "${CONF_DATA}/temp" \
-  && chmod -R 777 "${CONF_DATA}/logs" \
-  && chmod -R 777 "${CONF_DATA}/work" \
+  tar -xz --directory "${CONF_HOME}" --strip-components=1
+  
+RUN mkdir -p ${CONF_DATA}/temp && mkdir ${CONF_DATA}/logs && mkdir ${CONF_DATA}/work \
+  && chown -R confluence:confluence "${CONF_DATA}"
   && echo -e "\nconfluence.home=${CONF_DATA}" >> "${CONF_HOME}/confluence/WEB-INF/classes/confluence-init.properties"
   
 WORKDIR ${CONF_HOME}
