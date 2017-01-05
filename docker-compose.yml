@@ -5,13 +5,15 @@ services:
     ports:
       - "8082:8080"
     volumes:
-      - "/data/confluence/:/data/confluence_home:rw"
+      - "/data/confluence/:/data/confluence:rw"
     links:
       - confluence-mysql
     networks:
       - confluence-net
   confluence-mysql:
     image: c3t3m3/docker-mysql
+    volumes:
+      - "/data/confluence/db:/var/lib/mysql:rw"
     env_file: ./init_mysql.env
     networks:
       - confluence-net
