@@ -1,7 +1,7 @@
 version: '2'
 services:
   confluence:
-    image: c3t3m3/docker-confluence
+    image: registry.cn-hangzhou.aliyuncs.com/c3t3m3/docker-confluence
     ports:
       - "8082:8080"
     volumes:
@@ -11,7 +11,7 @@ services:
     networks:
       - confluence-net
   confluence-mysql:
-    image: c3t3m3/docker-mysql
+    image: registry.cn-hangzhou.aliyuncs.com/c3t3m3/docker-mysql
     env_file: ./init_mysql.env
     networks:
       - confluence-net
