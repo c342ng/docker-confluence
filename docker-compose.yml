@@ -5,7 +5,7 @@ services:
     ports:
       - "8082:8080"
     volumes:
-      - "./data/confluence/:/var/confluence_home:rw"
+      - "/data/confluence/:/data/confluence_home:rw"
     links:
       - confluence-mysql
     networks:
