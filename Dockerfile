@@ -18,4 +18,4 @@ RUN mkdir -p ${CONF_DATA}/temp && mkdir ${CONF_DATA}/logs && mkdir ${CONF_DATA}/
 WORKDIR ${CONF_HOME}
 EXPOSE 8090
 EXPOSE 8080
-CMD ["sh","${CONF_HOME}/bin/catalina.sh","run"]
+CMD ["sh","./bin/catalina.sh","run"]
